@@ -1,5 +1,5 @@
 import { authService } from "fbase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 
 const AuthForm = () => {
@@ -28,7 +28,7 @@ const AuthForm = () => {
           password
         );
       } else {
-        data = await createUserWithEmailAndPassword(
+        data = await signInWithEmailAndPassword(
           authService,
           email,
           password
