@@ -1,4 +1,4 @@
-import { dbService, storageService } from "fbase";
+import { authService, dbService, storageService } from "fbase";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -24,11 +24,35 @@ const NweetFactory = ({ userObj }) => {
       );
       attachmentUrl = await getDownloadURL(response.ref);
     }
+
+    const todayTime = () => {
+      let now = new Date();
+      let year = now.getFullYear();
+      let todayMonth = now.getMonth() + 1;
+      let todayDate = now.getDate();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+
+      return (
+        year +
+        "년 " +
+        todayMonth +
+        "월 " +
+        todayDate +
+        "일 " +
+        hours +
+        "시" +
+        minutes +
+        "분"
+      );
+    };
+
     const nweetObj = {
       text: nweet,
-      createdAt: Date.now(),
+      createdAt: todayTime(),
       creatorId: userObj.uid,
       attachmentUrl,
+      author: authService.currentUser.displayName
     };
     await addDoc(collection(dbService, "nweets"), nweetObj);
     setNweet("");

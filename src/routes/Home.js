@@ -11,7 +11,7 @@ import NweetFactory from "components/NweetFactory";
 const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([]);
   useEffect(() => {
-    const q = query(
+    const q = query(  
       collection(dbService, "nweets")
       //orderBy("createdAt", "desc")
     );
@@ -29,6 +29,7 @@ const Home = ({ userObj }) => {
       <div style={{ marginTop: 30 }}>
         {nweets.map((nweet) => (
           <Nweet
+            userObj={userObj}
             key={nweet.id}
             nweetObj={nweet}
             isOwner={nweet.creatorId === userObj.uid}

@@ -42,7 +42,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
               <Redirect from="*" to={"/"} />
             </>
           )}
-        </>
+        </>   
       </Switch>
     </Router>
   );

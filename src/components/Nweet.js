@@ -6,7 +6,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Nweet = ({ nweetObj, isOwner }) => {
+const Nweet = ({ userObj, nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newNweet, setNewNweet] = useState(nweetObj.text);
   const NweetTextRef = doc(dbService, "nweets", `${nweetObj.id}`);
@@ -67,8 +67,10 @@ const Nweet = ({ nweetObj, isOwner }) => {
         </>
       ) : (
         <>
-          <h4>{nweetObj.text}</h4>
+          <h5>작성자 : {nweetObj.author}</h5>
+          <h5>{nweetObj.createdAt}</h5>
           {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} />}
+          <h4>{nweetObj.text}</h4>
           {isOwner && (
             <div className="nweet__actions">
             <span onClick={onDeleteClick}>

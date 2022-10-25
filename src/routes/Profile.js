@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import { updateProfile } from "firebase/auth";
+import Home from "./Home";
+import Nweet from "components/Nweet";
 
 export default ({ refreshUser, userObj }) => {
   const history = useHistory();
@@ -58,6 +60,7 @@ export default ({ refreshUser, userObj }) => {
           }}
         />
       </form>
+      {nweet.creatorId === userObj.uid ? <Nweet/> : null}
       <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
         Log Out
       </span>

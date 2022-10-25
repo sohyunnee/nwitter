@@ -9,14 +9,16 @@ const Navigation = ({ userObj }) => (
     <ul style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
       <li>
         <Link to="/" style={{ marginRight: 10 }}>
-          <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="2x" />
+          <FontAwesomeIcon style={{ marginBottom: 10 }} icon={faTwitter} color={"#04AAFF"} size="2x" />
+          <div>Home</div>
         </Link>
       </li>
       <li>
         <Link
           to="/profile"
           style={{
-            marginLeft: 10,
+            marginTop:1,
+            marginLeft: 30,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -24,11 +26,11 @@ const Navigation = ({ userObj }) => (
           }}
         >
           <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
-          <span style={{ marginTop: 10 }}>
+          <div style={{ marginTop: 15, fontSize:13.5 }}>
             {userObj.displayName
               ? `${userObj.displayName}의 Profile`
               : "Profile"}
-          </span>
+          </div>
         </Link>
       </li>
     </ul>
