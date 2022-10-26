@@ -60,7 +60,6 @@ export default ({ refreshUser, userObj }) => {
           }}
         />
       </form>
-      {nweet.creatorId === userObj.uid ? <Nweet/> : null}
       <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
         Log Out
       </span>
