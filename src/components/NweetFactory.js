@@ -10,9 +10,9 @@ const NweetFactory = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
   const [attachment, setAttachment] = useState("");
   const onSubmit = async (event) => {
-    if (nweet === "") {
+    /*if (nweet === "") {
       return;
-    }
+    }*/
     event.preventDefault();
     let attachmentUrl = "";
     if (attachment !== "") {

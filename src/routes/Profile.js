@@ -24,7 +24,7 @@ export default ({ refreshUser, userObj }) => {
     if(userObj.displayName !== newDisplayName) {
       await updateProfile(authService.currentUser, { displayName: newDisplayName });
       refreshUser(); //react.js에 있는 profile을 새로고침
-    }
+    } 
   };
   const getMyNweets = async () => {
     const q = query(
