@@ -58,7 +58,9 @@ hr {
   display: flex;
   flex-direction: column;
   margin: 10px auto;
-  /* justify-content: center; */
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 
